@@ -8,7 +8,7 @@ export const SIZE_UNITS = {
 };
 
 export const FOOD_PACKETS: FoodPacket[] = [
-  { id: 'buckwheat', name: 'Гречка', calories: 9089, weightKg: 2.65, size: 'M', price: 590, image: 'https://picsum.photos/seed/buckwheat/200/200', modalImage: 'https://picsum.photos/seed/buckwheat/800/600' },
+  { id: 'buckwheat', name: 'Гречка', calories: 9089, weightKg: 2.65, size: 'M', price: 590, image: '/images/гречка.jpg', modalImage: '/images/гречка-l.jpg' },
   { id: 'millet', name: 'Пшено', calories: 9063, weightKg: 2.65, size: 'M', price: 650, image: 'https://picsum.photos/seed/millet/200/200', modalImage: 'https://picsum.photos/seed/millet/800/600' },
   { id: 'oatmeal', name: 'Овсянка', calories: 5780, weightKg: 1.7, size: 'M', price: 600, image: 'https://picsum.photos/seed/oatmeal/200/200', modalImage: 'https://picsum.photos/seed/oatmeal/800/600' },
   { id: 'rice', name: 'Рис', calories: 8824, weightKg: 2.65, size: 'M', price: 880, image: 'https://picsum.photos/seed/rice/200/200', modalImage: 'https://picsum.photos/seed/rice/800/600' },
@@ -34,7 +34,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     extraSCapacity: 0,
     price: 100,
     description: '4 пакета (размер M)',
-    icon: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800'
+    icon: '/images/box4.jpg'
   },
   { 
     id: 'household', 
@@ -43,7 +43,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     extraSCapacity: 5,
     price: 2700,
     description: '10 пакетов M + 5 пакетов S',
-    icon: 'https://images.unsplash.com/photo-1591193583824-1b7038a7919b?auto=format&fit=crop&q=80&w=800'
+    icon: '/images/box1.jpg'
   },
   { 
     id: 'expedition', 
@@ -52,7 +52,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     extraSCapacity: 0,
     price: 6800,
     description: '9 пакетов (размер M)',
-    icon: 'https://images.unsplash.com/photo-1521331869997-29e24744e073?auto=format&fit=crop&q=80&w=800'
+    icon: '/images/box2.jpg'
   },
   { 
     id: 'crate', 
@@ -61,7 +61,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     extraSCapacity: 0,
     price: 5200,
     description: '8 пакетов (размер M)',
-    icon: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&q=80&w=800'
+    icon: '/images/box3.jpg'
   },
 ];
 
