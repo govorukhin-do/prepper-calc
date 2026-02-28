@@ -8,6 +8,7 @@ export interface FoodPacket {
   size: PacketSize;
   price: number;
   image?: string;
+  modalImage?: string;
 }
 
 export interface ContainerType {

@@ -914,7 +914,7 @@ export default function App() {
                               className="bg-tactical-card border border-tactical-border rounded-lg flex flex-col overflow-hidden group relative"
                             >
                             <div 
-                              onClick={() => setZoomImage({ url: packet.image, title: packet.name, desc: `${packet.calories} ккал | ${packet.weightKg} кг | ${packet.price} ₽` })}
+                              onClick={() => setZoomImage({ url: packet.modalImage || packet.image || '', title: packet.name, desc: `${packet.calories} ккал | ${packet.weightKg} кг | ${packet.price} ₽` })}
                               className="h-24 w-full bg-tactical-bg relative cursor-pointer"
                             >
                               <img src={packet.image} alt={packet.name} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" referrerPolicy="no-referrer" />
