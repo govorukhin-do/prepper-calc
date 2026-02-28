@@ -174,12 +174,30 @@ export default function App() {
     const totalPacketsNeeded = totalCaloriesNeeded / weightedCalories;
     
     let packetsToPack: string[] = [];
+    let currentCalories = 0;
+    
+    // First pass: add packets based on proportions
     autoPool.forEach(item => {
       const count = Math.round((item.proportion / totalProp) * totalPacketsNeeded);
+      const packet = FOOD_PACKETS.find(p => p.id === item.packetId)!;
       for (let i = 0; i < count; i++) {
         packetsToPack.push(item.packetId);
+        currentCalories += packet.calories;
       }
     });
+
+    // Second pass: if we are short on calories, add more packets until we meet or exceed the goal
+    if (currentCalories < totalCaloriesNeeded) {
+      // Find the packet with the highest proportion to add
+      const highestProportionItem = [...autoPool].sort((a, b) => b.proportion - a.proportion)[0];
+      if (highestProportionItem) {
+        const packet = FOOD_PACKETS.find(p => p.id === highestProportionItem.packetId)!;
+        while (currentCalories < totalCaloriesNeeded) {
+          packetsToPack.push(highestProportionItem.packetId);
+          currentCalories += packet.calories;
+        }
+      }
+    }
     
     const containerType = CONTAINER_TYPES.find(t => t.id === autoContainerId)!;
     const maxMUnits = containerType.mCapacity * 6;
