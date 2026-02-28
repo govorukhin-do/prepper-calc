@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-tactical-bg: #1a1c1e;
+  --color-tactical-card: #25282c;
+  --color-tactical-accent: #f4a460; /* Sandy Brown / Wheat */
+  --color-tactical-accent-hover: #e69138;
+  --color-tactical-border: #383c42;
+  --color-tactical-text: #f0f2f5;
+  --color-tactical-muted: #94a3b8;
+}
+
+body {
+  background-color: var(--color-tactical-bg);
+  color: var(--color-tactical-text);
+  font-family: var(--font-sans);
+}
+
+.tactical-grid {
+  background-image: radial-gradient(var(--color-tactical-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
