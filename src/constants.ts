@@ -34,7 +34,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     extraSCapacity: 0,
     price: 100,
     description: '4 пакета (размер M)',
-    icon: '/images/box4.jpg'
+    icon: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800'
   },
   { 
     id: 'household', 
@@ -43,7 +43,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     extraSCapacity: 5,
     price: 2700,
     description: '10 пакетов M + 5 пакетов S',
-    icon: '/images/box1.jpg'
+    icon: 'https://images.unsplash.com/photo-1591193583824-1b7038a7919b?auto=format&fit=crop&q=80&w=800'
   },
   { 
     id: 'expedition', 
@@ -52,7 +52,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     extraSCapacity: 0,
     price: 6800,
     description: '9 пакетов (размер M)',
-    icon: '/images/box2.jpg'
+    icon: 'https://images.unsplash.com/photo-1521331869997-29e24744e073?auto=format&fit=crop&q=80&w=800'
   },
   { 
     id: 'crate', 
@@ -61,7 +61,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     extraSCapacity: 0,
     price: 5200,
     description: '8 пакетов (размер M)',
-    icon: '/images/box3.jpg'
+    icon: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&q=80&w=800'
   },
 ];
 
