@@ -1285,8 +1285,8 @@ export default function App() {
               className="max-w-4xl w-full bg-tactical-card border border-tactical-border rounded-3xl overflow-hidden shadow-2xl"
               onClick={e => e.stopPropagation()}
             >
-              <div className="relative aspect-video">
-                <img src={zoomImage.url} alt={zoomImage.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <div className="relative aspect-3/2">
+                <img src={zoomImage.url} alt={zoomImage.title} className="w-full h-full object-cover object-[14%_13%]" referrerPolicy="no-referrer" />
                 <button 
                   onClick={() => setZoomImage(null)}
                   className="absolute top-4 right-4 p-2 bg-tactical-bg/50 backdrop-blur rounded-full text-white hover:bg-tactical-accent hover:text-tactical-bg transition-all cursor-pointer"

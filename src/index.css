@@ -1,9 +1,13 @@
 @import "tailwindcss";
 
+@layer utilities {
+
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  
+
   --color-tactical-bg: #1a1c1e;
   --color-tactical-card: #25282c;
   --color-tactical-accent: #f4a460; /* Sandy Brown / Wheat */
