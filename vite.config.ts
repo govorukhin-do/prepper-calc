@@ -7,6 +7,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
+    base: '/prepper-calc',
     plugins: [
       react(), 
       tailwindcss(),
