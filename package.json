@@ -11,7 +11,8 @@
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
     "update-prices": "tsx scripts/update-prices.ts",
-    "predeploy": "npm run update-prices && npm run build",
+    "update-and-push": "tsx scripts/updateAndPush.ts",
+    "predeploy": "npm run update-and-push  && npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {

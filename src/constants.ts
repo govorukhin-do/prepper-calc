@@ -1,4 +1,4 @@
-// Last price update: 02.03.2026, 11:17:19
+// Last price update: 02.03.2026, 11:41:31
 import { FoodPacket, ContainerType } from './types';
 
 // Unit system: M = 6, MS = 2, S = 1
