@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "predeploy": "npm run build",
+    "update-prices": "tsx scripts/update-prices.ts",
+    "predeploy": "npm run update-prices && npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -20,7 +21,7 @@
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
     "clsx": "^2.1.1",
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.3.1",
     "framer-motion": "^12.34.3",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
@@ -36,6 +37,7 @@
     "@types/node": "^22.14.0",
     "autoprefixer": "^10.4.21",
     "gh-pages": "^6.3.0",
+    "googleapis": "^171.4.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",

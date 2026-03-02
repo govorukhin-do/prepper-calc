@@ -1,3 +1,4 @@
+// Last price update: 02.03.2026, 11:17:19
 import { FoodPacket, ContainerType } from './types';
 
 // Unit system: M = 6, MS = 2, S = 1
@@ -8,21 +9,21 @@ export const SIZE_UNITS = {
 };
 
 export const FOOD_PACKETS: FoodPacket[] = [
-  { id: 'buckwheat', name: 'Гречка', calories: 9089, weightKg: 2.65, size: 'M', price: 590, image: '/prepper-calc/images/гречка.webp', modalImage: '/prepper-calc/images/гречка-l.webp' },
-  { id: 'rice', name: 'Рис', calories: 8824, weightKg: 2.65, size: 'M', price: 880, image: '/prepper-calc/images/рис.webp', modalImage: '/prepper-calc/images/рис-l.webp' },
-  { id: 'millet', name: 'Пшено', calories: 9063, weightKg: 2.65, size: 'M', price: 650, image: '/prepper-calc/images/пшено.webp', modalImage: '/prepper-calc/images/пшено-l.webp' },
-  { id: 'oatmeal', name: 'Овсянка', calories: 5780, weightKg: 1.7, size: 'M', price: 600, image: '/prepper-calc/images/овсянка.webp', modalImage: '/prepper-calc/images/овсянка-l.webp' },
-  { id: 'sugar', name: 'Сахар', calories: 11542, weightKg: 2.9, size: 'M', price: 750, image: '/prepper-calc/images/сахар.webp', modalImage: '/prepper-calc/images/сахар-l.webp' },
-  { id: 'beans', name: 'Фасоль', calories: 8658, weightKg: 2.6, size: 'M', price: 1550, image: '/prepper-calc/images/фасоль.webp', modalImage: '/prepper-calc/images/фасоль-l.webp' },
-  { id: 'chickpeas', name: 'Нут', calories: 9464, weightKg: 2.6, size: 'M', price: 1200, image: '/prepper-calc/images/нут.webp', modalImage: '/prepper-calc/images/нут-l.webp' },
-  { id: 'lentils', name: 'Чечевица', calories: 8075, weightKg: 2.5, size: 'M', price: 1200,  image: '/prepper-calc/images/чечевица.webp', modalImage: '/prepper-calc/images/чечевица-l.webp' },
-  { id: 'pasta_standard', name: 'Макароны рожки', calories: 5100, weightKg: 1.5, size: 'M', price: 850, image: '/prepper-calc/images/рожки.webp', modalImage: '/prepper-calc/images/рожки-l.webp' },
-  { id: 'ptitim', name: 'Макароны птитим', calories: 2275, weightKg: 0.65, size: 'MS', price: 600, image: 'https://picsum.photos/seed/ptitim/200/200', modalImage: 'https://picsum.photos/seed/ptitim/800/600' },
-  { id: 'pork', name: 'Свинина сублим.', calories: 1304, weightKg: 0.2, size: 'MS', price: 2300, image: 'https://picsum.photos/seed/pork/200/200', modalImage: 'https://picsum.photos/seed/pork/800/600' },
-  { id: 'peas', name: 'Горох', calories: 7748, weightKg: 2.6, size: 'M', price: 770, image: 'https://picsum.photos/seed/peas/200/200', modalImage: 'https://picsum.photos/seed/peas/800/600' },
-  { id: 'pepper', name: 'Перец', calories: 632, weightKg: 0.18, size: 'S', price: 700, image: 'https://picsum.photos/seed/pepper/200/200', modalImage: 'https://picsum.photos/seed/pepper/800/600' },
-  { id: 'coffee', name: 'Кофе сублим.', calories: 94, weightKg: 0.1, size: 'S', price: 750, image: 'https://picsum.photos/seed/coffee/200/200', modalImage: 'https://picsum.photos/seed/coffee/800/600' },
-  { id: 'salt', name: 'Соль морская', calories: 0, weightKg: 0.35, size: 'S', price: 300, image: 'https://picsum.photos/seed/salt/200/200', modalImage: 'https://picsum.photos/seed/salt/800/600' },
+  { id: 'buckwheat', name: 'Гречка', calories: 9089, weightKg: 2.65, size: 'M', price: 530, image: `${import.meta.env.BASE_URL}/images/гречка.webp`, modalImage: `${import.meta.env.BASE_URL}/images/гречка-l.webp` },
+  { id: 'rice', name: 'Рис', calories: 8824, weightKg: 2.65, size: 'M', price: 810, image: `${import.meta.env.BASE_URL}/images/рис.webp`, modalImage: `${import.meta.env.BASE_URL}/images/рис-l.webp` },
+  { id: 'millet', name: 'Пшено', calories: 9063, weightKg: 2.65, size: 'M', price: 540, image: `${import.meta.env.BASE_URL}/images/пшено.webp`, modalImage: `${import.meta.env.BASE_URL}/images/пшено-l.webp` },
+  { id: 'oatmeal', name: 'Овсянка', calories: 5780, weightKg: 1.7, size: 'M', price: 540, image: `${import.meta.env.BASE_URL}/images/овсянка.webp`, modalImage: `${import.meta.env.BASE_URL}/images/овсянка-l.webp` },
+  { id: 'sugar', name: 'Сахар', calories: 11542, weightKg: 2.9, size: 'M', price: 680, image: `${import.meta.env.BASE_URL}/images/сахар.webp`, modalImage: `${import.meta.env.BASE_URL}/images/сахар-l.webp` },
+  { id: 'beans', name: 'Фасоль', calories: 8658, weightKg: 2.6, size: 'M', price: 1440, image: `${import.meta.env.BASE_URL}/images/фасоль.webp`, modalImage: `${import.meta.env.BASE_URL}/images/фасоль-l.webp` },
+  { id: 'chickpeas', name: 'Нут', calories: 9464, weightKg: 2.6, size: 'M', price: 1110, image: `${import.meta.env.BASE_URL}/images/нут.webp`, modalImage: `${import.meta.env.BASE_URL}/images/нут-l.webp` },
+  { id: 'lentils', name: 'Чечевица', calories: 8075, weightKg: 2.5, size: 'M', price: 1060,  image: `${import.meta.env.BASE_URL}/images/чечевица.webp`, modalImage: `${import.meta.env.BASE_URL}/images/чечевица-l.webp` },
+  { id: 'pasta_standard', name: 'Макароны рожки', calories: 5100, weightKg: 1.5, size: 'M', price: 750, image: `${import.meta.env.BASE_URL}/images/рожки.webp`, modalImage: `${import.meta.env.BASE_URL}/images/рожки-l.webp` },
+  { id: 'peas', name: 'Горох', calories: 7748, weightKg: 2.6, size: 'M', price: 740, image:  `${import.meta.env.BASE_URL}/images/горох.webp` },
+  { id: 'pork', name: 'Свинина сублимированная', calories: 1304, weightKg: 0.2, size: 'MS', price: 2300, image: `${import.meta.env.BASE_URL}/images/свинина.webp`, modalImage: `${import.meta.env.BASE_URL}/images/свинина-l.webp` },
+  { id: 'ptitim', name: 'Макароны птитим', calories: 2275, weightKg: 0.65, size: 'MS', price: 570, image: `${import.meta.env.BASE_URL}/images/птитим.webp`, modalImage: `${import.meta.env.BASE_URL}/images/птитим-l.webp` },
+  { id: 'pepper', name: 'Перец', calories: 632, weightKg: 0.18, size: 'S', price: 660, image: `${import.meta.env.BASE_URL}/images/перец.web`, modalImage: `${import.meta.env.BASE_URL}/images/перец-l.web` },
+  { id: 'coffee', name: 'Кофе сублимированный', calories: 94, weightKg: 0.1, size: 'S', price: 710, image: `${import.meta.env.BASE_URL}/images/кофе.web`, modalImage: `${import.meta.env.BASE_URL}/images/кофе-l.web` },
+  { id: 'salt', name: 'Соль морская', calories: 0, weightKg: 0.35, size: 'S', price: 430, image: `${import.meta.env.BASE_URL}/images/соль.web`, modalImage: `${import.meta.env.BASE_URL}/images/соль.web` },
 ];
 
 export const CONTAINER_TYPES: ContainerType[] = [
@@ -31,9 +32,9 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Коробка', 
     mCapacity: 4, 
     extraSCapacity: 0,
-    price: 100,
+    price: 180,
     description: '4 пакета (размер M)',
-    icon: '/prepper-calc/images/box4.webp'
+    icon: `${import.meta.env.BASE_URL}/images/box4.webp`
   },
   { 
     id: 'household', 
@@ -42,25 +43,25 @@ export const CONTAINER_TYPES: ContainerType[] = [
     extraSCapacity: 5,
     price: 2700,
     description: '10 пакетов M + 5 пакетов S',
-    icon: '/prepper-calc/images/box1.webp'
+    icon: `${import.meta.env.BASE_URL}/images/box1.webp`
   },
   { 
     id: 'expedition', 
     name: 'Контейнер экспедиционный', 
     mCapacity: 9, 
     extraSCapacity: 0,
-    price: 6800,
+    price: 2700,
     description: '9 пакетов (размер M)',
-    icon: '/prepper-calc/images/box2.webp'
+    icon: `${import.meta.env.BASE_URL}/images/box2.webp`
   },
   { 
     id: 'crate', 
     name: 'Ящик деревянный', 
     mCapacity: 8, 
     extraSCapacity: 0,
-    price: 5200,
+    price: 3720,
     description: '8 пакетов (размер M)',
-    icon: '/prepper-calc/images/box3.webp'
+    icon: `${import.meta.env.BASE_URL}/images/box3.webp`
   },
 ];
 

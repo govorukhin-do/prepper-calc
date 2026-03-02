@@ -1251,7 +1251,7 @@ export default function App() {
                       <h3 className="font-bold">Гарантия качества</h3>
                     </div>
                     <p className="text-xs text-tactical-muted leading-relaxed">
-                      Все продукты упакованы в вакуумную среду с поглотителями кислорода. Срок хранения до 25 лет при соблюдении температурного режима.
+                      Все продукты упакованы в вакуумную среду с поглотителями кислорода. Срок хранения 20 лет при соблюдении температурного режима.
                     </p>
                   </div>
 
@@ -1323,17 +1323,44 @@ export default function App() {
                   <X className="w-6 h-6" />
                 </button>
               </div>
-              <form className="space-y-4" onSubmit={e => { 
+              <form className="space-y-4" onSubmit={async (e) => {
                 e.preventDefault(); 
                 const type = showOrderForm;
-                setShowOrderForm(null); 
+                setShowOrderForm(null);
+
+                const data = new FormData();
+debugger
+                // Обязательные поля Tilda
+                data.append('formservices[]', '2b5d90b9aa310e7a0894d530130ddb34');
+                data.append('formservices[]', '3bb3f4b9b87d000b5142e0396d551e73');
+                data.append('tildaspec-formid', 'form1979961021');
+                data.append('tildaspec-formskey', '9b9b3c950e14157f020703d7b6006784');
+                const username = e.target.elements.username.value;
+
+                // Твои поля
+                data.append('Email', "e.email");
+                data.append('Name', username);
+                data.append('Phone', "e.phone"); // или разделить на части
+                data.append('состав', "e.sostav");
+
+                // Технические поля (необязательны, но желательны)
+                data.append('tildaspec-referer', window.location.href);
+                data.append('form-spec-comments', '');
+
+
+                const response = await fetch(                  'https://forms.tildaapi.com/procces/', {
+                  method: 'POST',
+                  body: data,
+                  mode: 'no-cors' // ⚠️ обходим CORS
+                });
+
                 showToast(type === 'order' ? 'Заявка отправлена!' : 'Запрос на консультацию отправлен!'); 
               }}>
                 <div className="space-y-2">
                   <label className="text-[10px] font-mono text-tactical-muted uppercase">Ваше имя</label>
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-tactical-muted" />
-                    <input type="text" required className="w-full bg-tactical-bg border border-tactical-border rounded-xl py-3 pl-10 pr-4 text-white focus:border-tactical-accent outline-none" placeholder="Иван Иванов" />
+                    <input type="text" name="username" required className="w-full bg-tactical-bg border border-tactical-border rounded-xl py-3 pl-10 pr-4 text-white focus:border-tactical-accent outline-none" placeholder="Иван Иванов" />
                   </div>
                 </div>
                 <div className="space-y-2">

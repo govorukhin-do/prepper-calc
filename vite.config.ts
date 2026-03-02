@@ -7,7 +7,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/prepper-calc',
+    base: 'https://govorukhin-do.github.io/prepper-calc',
     plugins: [
       react(), 
       tailwindcss(),
@@ -39,5 +39,14 @@ export default defineConfig(({mode}) => {
       // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
     },
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: 'assets/index.js',      // было: index-[hash].js
+          chunkFileNames: 'assets/[name].js',     // было: [name]-[hash].js
+          assetFileNames: 'assets/[name].[ext]'   // было: [name]-[hash].[ext]
+        }
+      }
+    }
   };
 });
