@@ -1,4 +1,4 @@
-// Last price update: 02.03.2026, 11:41:31
+// Last price update: 02.03.2026, 11:43:01
 import { FoodPacket, ContainerType } from './types';
 
 // Unit system: M = 6, MS = 2, S = 1
@@ -21,9 +21,9 @@ export const FOOD_PACKETS: FoodPacket[] = [
   { id: 'peas', name: 'Горох', calories: 7748, weightKg: 2.6, size: 'M', price: 740, image:  `${import.meta.env.BASE_URL}/images/горох.webp` },
   { id: 'pork', name: 'Свинина сублимированная', calories: 1304, weightKg: 0.2, size: 'MS', price: 2300, image: `${import.meta.env.BASE_URL}/images/свинина.webp`, modalImage: `${import.meta.env.BASE_URL}/images/свинина-l.webp` },
   { id: 'ptitim', name: 'Макароны птитим', calories: 2275, weightKg: 0.65, size: 'MS', price: 570, image: `${import.meta.env.BASE_URL}/images/птитим.webp`, modalImage: `${import.meta.env.BASE_URL}/images/птитим-l.webp` },
-  { id: 'pepper', name: 'Перец', calories: 632, weightKg: 0.18, size: 'S', price: 660, image: `${import.meta.env.BASE_URL}/images/перец.web`, modalImage: `${import.meta.env.BASE_URL}/images/перец-l.web` },
-  { id: 'coffee', name: 'Кофе сублимированный', calories: 94, weightKg: 0.1, size: 'S', price: 710, image: `${import.meta.env.BASE_URL}/images/кофе.web`, modalImage: `${import.meta.env.BASE_URL}/images/кофе-l.web` },
-  { id: 'salt', name: 'Соль морская', calories: 0, weightKg: 0.35, size: 'S', price: 430, image: `${import.meta.env.BASE_URL}/images/соль.web`, modalImage: `${import.meta.env.BASE_URL}/images/соль.web` },
+  { id: 'pepper', name: 'Перец', calories: 632, weightKg: 0.18, size: 'S', price: 660, image: `${import.meta.env.BASE_URL}/images/перец.webp`, modalImage: `${import.meta.env.BASE_URL}/images/перец-l.webp` },
+  { id: 'coffee', name: 'Кофе сублимированный', calories: 94, weightKg: 0.1, size: 'S', price: 710, image: `${import.meta.env.BASE_URL}/images/кофе.webp`, modalImage: `${import.meta.env.BASE_URL}/images/кофе-l.webp` },
+  { id: 'salt', name: 'Соль морская', calories: 0, weightKg: 0.35, size: 'S', price: 430, image: `${import.meta.env.BASE_URL}/images/соль.webp`, modalImage: `${import.meta.env.BASE_URL}/images/соль.webp` },
 ];
 
 export const CONTAINER_TYPES: ContainerType[] = [
