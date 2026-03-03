@@ -1735,11 +1735,11 @@ export default function App() {
               }}>
                 <div className="space-y-2">
                   <label className="text-[10px] font-mono text-tactical-muted uppercase">Ваша идея или комментарий</label>
-                  <textarea required className="w-full bg-tactical-bg border border-tactical-border rounded-xl py-3 px-4 text-white focus:border-tactical-accent outline-none min-h-[120px]" placeholder="Опишите ваше предложение..." />
+                  <textarea name="message" required className="w-full bg-tactical-bg border border-tactical-border rounded-xl py-3 px-4 text-white focus:border-tactical-accent outline-none min-h-[120px]" placeholder="Опишите ваше предложение..." />
                 </div>
                 <div className="space-y-2">
                   <label className="text-[10px] font-mono text-tactical-muted uppercase">Контакт для связи (если хотите)</label>
-                  <input type="text" className="w-full bg-tactical-bg border border-tactical-border rounded-xl py-3 px-4 text-white focus:border-tactical-accent outline-none" placeholder="любой контакт для связи" />
+                  <input name="contact" type="text" className="w-full bg-tactical-bg border border-tactical-border rounded-xl py-3 px-4 text-white focus:border-tactical-accent outline-none" placeholder="любой контакт для связи" />
                 </div>
                 <button type="submit" className="w-full py-4 bg-tactical-accent text-tactical-bg rounded-xl font-black uppercase tracking-tighter mt-4 hover:scale-[1.02] transition-transform">
                   Отправить
