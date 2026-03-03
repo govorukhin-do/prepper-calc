@@ -1161,17 +1161,22 @@ export default function App() {
                       ).map(([typeId, count]) => {
                         const type = CONTAINER_TYPES.find(t => t.id === typeId)!;
                         return (
-                          <div key={typeId} className="flex items-center justify-between p-4 bg-tactical-bg/50 rounded-xl border border-tactical-border">
-                            <div className="flex items-center gap-4">
-                              <div className="w-12 h-12 rounded-lg overflow-hidden">
-                                <img src={type.icon} alt={type.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                          <div key={typeId} className="flex flex-col p-4 bg-tactical-bg/50 rounded-xl border border-tactical-border">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-4">
+                                <div className="w-12 h-12 rounded-lg overflow-hidden">
+                                  <img src={type.icon} alt={type.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                                </div>
+                                <div>
+                                  <div className="font-bold">{type.name}</div>
+                                  <div className="text-xs text-tactical-muted">{count} шт. x {type.price} ₽</div>
+                                </div>
                               </div>
-                              <div>
-                                <div className="font-bold">{type.name}</div>
-                                <div className="text-xs text-tactical-muted">{count} шт. x {type.price} ₽</div>
-                              </div>
+                              <div className="text-lg font-black text-white">{(count * type.price).toLocaleString()} ₽</div>
                             </div>
-                            <div className="text-lg font-black text-white">{(count * type.price).toLocaleString()} ₽</div>
+                            <div className="text-[10px] text-tactical-muted text-right mt-2 pt-2 border-t border-tactical-border/50">
+                              * В цену включена доставка до терминала транспортной компании
+                            </div>
                           </div>
                         );
                       })}
@@ -1198,7 +1203,7 @@ export default function App() {
                               </div>
                               <div>
                                 <div className="text-xs font-bold">{p.name}</div>
-                                <div className="text-[10px] text-tactical-muted">{count} шт.</div>
+                                <div className="text-[10px] text-tactical-muted">{count} шт. · {(count * p.weightKg).toFixed(2)} кг</div>
                               </div>
                             </div>
                             <div className="text-xs font-bold text-tactical-accent">{(count * p.price).toLocaleString()} ₽</div>
@@ -1258,7 +1263,7 @@ export default function App() {
                       <h3 className="font-bold">Гарантия качества</h3>
                     </div>
                     <p className="text-xs text-tactical-muted leading-relaxed">
-                      Все продукты упакованы в вакуумную среду с поглотителями кислорода. Срок хранения до 20 лет при соблюдении температурного режима.
+                      Все продукты упакованы в вакуумную среду с поглотителями кислорода. Срок хранения 20 лет при соблюдении температурного режима.
                     </p>
                   </div>
 
