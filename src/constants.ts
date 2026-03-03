@@ -1,4 +1,4 @@
-// Last price update: 02.03.2026, 14:41:13
+// Last price update: 03.03.2026, 21:34:11
 import { FoodPacket, ContainerType } from './types';
 
 // Unit system: M = 6, MS = 2, S = 1
@@ -23,7 +23,7 @@ export const FOOD_PACKETS: FoodPacket[] = [
   { id: 'ptitim', name: 'Макароны птитим', calories: 2275, weightKg: 0.65, size: 'MS', price: 570, image: `${import.meta.env.BASE_URL}/images/птитим.webp`, modalImage: `${import.meta.env.BASE_URL}/images/птитим-l.webp` },
   { id: 'pepper', name: 'Перец', calories: 632, weightKg: 0.18, size: 'S', price: 660, image: `${import.meta.env.BASE_URL}/images/перец.webp`, modalImage: `${import.meta.env.BASE_URL}/images/перец-l.webp` },
   { id: 'coffee', name: 'Кофе сублимированный', calories: 94, weightKg: 0.1, size: 'S', price: 710, image: `${import.meta.env.BASE_URL}/images/кофе.webp`, modalImage: `${import.meta.env.BASE_URL}/images/кофе-l.webp` },
-  { id: 'salt', name: 'Соль морская', calories: 0, weightKg: 0.3, size: 'S', price: 430, image: `${import.meta.env.BASE_URL}/images/соль.webp`, modalImage: `${import.meta.env.BASE_URL}/images/соль.webp` },
+  { id: 'salt', name: 'Соль морская', calories: 0, weightKg: 0.3, size: 'S', price: 310, image: `${import.meta.env.BASE_URL}/images/соль.webp`, modalImage: `${import.meta.env.BASE_URL}/images/соль.webp` },
 ];
 
 export const CONTAINER_TYPES: ContainerType[] = [
