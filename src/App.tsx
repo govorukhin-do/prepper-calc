@@ -1555,9 +1555,8 @@ export default function App() {
                 const phone = formData.get('phone') as string;
                 const email = formData.get('email') as string;
 
-                const type = showOrderForm;
-                
-                if (type === 'order') {
+
+
                   const containerGroups: Record<string, { count: number, containerTypeId: string, packetIds: string[] }> = {};
                   
                   activeContainers.forEach(container => {
@@ -1632,7 +1631,7 @@ export default function App() {
                   } else {
                     console.log('Order Data:', orderData);
                   }
-                }
+                const type = showOrderForm;
 
                 setShowOrderForm(null); 
                 showToast(type === 'order' ? 'Заявка отправлена!' : 'Запрос на консультацию отправлен!'); 
@@ -1717,7 +1716,23 @@ export default function App() {
                   <X className="w-6 h-6" />
                 </button>
               </div>
-              <form className="space-y-4" onSubmit={e => { e.preventDefault(); setShowIdeaForm(false); showToast('Спасибо за идею!'); }}>
+              <form className="space-y-4" onSubmit={async (e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const contact = formData.get('contact') as string;
+                const message = formData.get('message') as string;
+
+                if (typeof window !== 'undefined' && (window as any).onSubminIdeaForm) {
+                  await (window as any).onSubminIdeaForm( { message, contact }).then(
+                      ()=> showToast('Спасибо за идею!'),
+                      ()=> showToast('Ошибка! попробуйте позже или напишите на email contact@zapasov-more.ru!')
+                  );
+                }
+
+                setShowIdeaForm(false);
+
+
+              }}>
                 <div className="space-y-2">
                   <label className="text-[10px] font-mono text-tactical-muted uppercase">Ваша идея или комментарий</label>
                   <textarea required className="w-full bg-tactical-bg border border-tactical-border rounded-xl py-3 px-4 text-white focus:border-tactical-accent outline-none min-h-[120px]" placeholder="Опишите ваше предложение..." />
