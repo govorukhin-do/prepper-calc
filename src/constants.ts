@@ -1,4 +1,4 @@
-// Last price update: 04.03.2026, 23:48:16
+// Last price update: 05.03.2026, 13:04:02
 import { FoodPacket, ContainerType } from './types';
 
 // Unit system: M = 6, MS = 2, S = 1
@@ -10,18 +10,18 @@ export const SIZE_UNITS = {
 
 export const FOOD_PACKETS: FoodPacket[] = [
   { id: 'buckwheat', name: 'Гречка', calories: 9089, weightKg: 2.65, size: 'M', price: 540, image: `${import.meta.env.BASE_URL}/images/гречка.webp`, modalImage: `${import.meta.env.BASE_URL}/images/гречка-l.webp` },
-  { id: 'rice', name: 'Рис', calories: 8824, weightKg: 2.65, size: 'M', price: 830, image: `${import.meta.env.BASE_URL}/images/рис.webp`, modalImage: `${import.meta.env.BASE_URL}/images/рис-l.webp` },
+  { id: 'rice', name: 'Рис', calories: 8824, weightKg: 2.65, size: 'M', price: 820, image: `${import.meta.env.BASE_URL}/images/рис.webp`, modalImage: `${import.meta.env.BASE_URL}/images/рис-l.webp` },
   { id: 'millet', name: 'Пшено', calories: 9063, weightKg: 2.65, size: 'M', price: 560, image: `${import.meta.env.BASE_URL}/images/пшено.webp`, modalImage: `${import.meta.env.BASE_URL}/images/пшено-l.webp` },
   { id: 'oatmeal', name: 'Овсянка', calories: 5780, weightKg: 1.7, size: 'M', price: 550, image: `${import.meta.env.BASE_URL}/images/овсянка.webp`, modalImage: `${import.meta.env.BASE_URL}/images/овсянка-l.webp` },
   { id: 'sugar', name: 'Сахар', calories: 11542, weightKg: 2.9, size: 'M', price: 700, image: `${import.meta.env.BASE_URL}/images/сахар.webp`, modalImage: `${import.meta.env.BASE_URL}/images/сахар-l.webp` },
   { id: 'beans', name: 'Фасоль', calories: 8658, weightKg: 2.6, size: 'M', price: 1460, image: `${import.meta.env.BASE_URL}/images/фасоль.webp`, modalImage: `${import.meta.env.BASE_URL}/images/фасоль-l.webp` },
-  { id: 'chickpeas', name: 'Нут', calories: 9464, weightKg: 2.6, size: 'M', price: 1120, image: `${import.meta.env.BASE_URL}/images/нут.webp`, modalImage: `${import.meta.env.BASE_URL}/images/нут-l.webp` },
+  { id: 'chickpeas', name: 'Нут', calories: 9464, weightKg: 2.6, size: 'M', price: 990, image: `${import.meta.env.BASE_URL}/images/нут.webp`, modalImage: `${import.meta.env.BASE_URL}/images/нут-l.webp` },
   { id: 'lentils', name: 'Чечевица', calories: 8075, weightKg: 2.5, size: 'M', price: 1080,  image: `${import.meta.env.BASE_URL}/images/чечевица.webp`, modalImage: `${import.meta.env.BASE_URL}/images/чечевица-l.webp` },
   { id: 'pasta_standard', name: 'Макароны рожки', calories: 5100, weightKg: 1.5, size: 'M', price: 760, image: `${import.meta.env.BASE_URL}/images/рожки.webp`, modalImage: `${import.meta.env.BASE_URL}/images/рожки-l.webp` },
   { id: 'peas', name: 'Горох', calories: 7748, weightKg: 2.6, size: 'M', price: 750, image:  `${import.meta.env.BASE_URL}/images/горох.webp` },
   { id: 'pork', name: 'Свинина сублимированная', calories: 1304, weightKg: 0.2, size: 'MS', price: 2300, image: `${import.meta.env.BASE_URL}/images/свинина.webp`, modalImage: `${import.meta.env.BASE_URL}/images/свинина-l.webp` },
-  { id: 'ptitim', name: 'Макароны птитим', calories: 2275, weightKg: 0.65, size: 'MS', price: 580, image: `${import.meta.env.BASE_URL}/images/птитим.webp`, modalImage: `${import.meta.env.BASE_URL}/images/птитим-l.webp` },
-  { id: 'pepper', name: 'Перец', calories: 632, weightKg: 0.18, size: 'S', price: 670, image: `${import.meta.env.BASE_URL}/images/перец.webp`, modalImage: `${import.meta.env.BASE_URL}/images/перец-l.webp` },
+  { id: 'ptitim', name: 'Макароны птитим', calories: 2275, weightKg: 0.65, size: 'MS', price: 520, image: `${import.meta.env.BASE_URL}/images/птитим.webp`, modalImage: `${import.meta.env.BASE_URL}/images/птитим-l.webp` },
+  { id: 'pepper', name: 'Перец', calories: 632, weightKg: 0.18, size: 'S', price: 680, image: `${import.meta.env.BASE_URL}/images/перец.webp`, modalImage: `${import.meta.env.BASE_URL}/images/перец-l.webp` },
   { id: 'coffee', name: 'Кофе сублимированный', calories: 94, weightKg: 0.1, size: 'S', price: 740, image: `${import.meta.env.BASE_URL}/images/кофе.webp`, modalImage: `${import.meta.env.BASE_URL}/images/кофе-l.webp` },
   { id: 'salt', name: 'Соль морская', calories: 0, weightKg: 0.3, size: 'S', price: 310, image: `${import.meta.env.BASE_URL}/images/соль.webp`, modalImage: `${import.meta.env.BASE_URL}/images/соль.webp` },
 ];
@@ -32,7 +32,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Коробка', 
     mCapacity: 4, 
     extraSCapacity: 0,
-    price: 180,
+    price: 190,
     description: '4 пакета (размер M)',
     icon: `${import.meta.env.BASE_URL}/images/box4.webp`
   },
@@ -41,7 +41,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Контейнер бытовой', 
     mCapacity: 10, 
     extraSCapacity: 5,
-    price: 2700,
+    price: 2880,
     description: '10 пакетов M + 5 пакетов S',
     icon: `${import.meta.env.BASE_URL}/images/box1.webp`
   },
@@ -50,7 +50,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Контейнер экспедиционный', 
     mCapacity: 9, 
     extraSCapacity: 0,
-    price: 2700,
+    price: 2880,
     description: '9 пакетов (размер M)',
     icon: `${import.meta.env.BASE_URL}/images/box2.webp`
   },
@@ -59,7 +59,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Ящик деревянный', 
     mCapacity: 8, 
     extraSCapacity: 0,
-    price: 3720,
+    price: 3990,
     description: '8 пакетов (размер M)',
     icon: `${import.meta.env.BASE_URL}/images/box3.webp`
   },
