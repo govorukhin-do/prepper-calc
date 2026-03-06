@@ -35,13 +35,21 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-function Tooltip({ children, content }: { children: React.ReactNode, content: string }) {
+function Tooltip({ children, content, align = 'center', className }: { children: React.ReactNode, content: string, align?: 'center' | 'left' | 'right', className?: string }) {
   const [isVisible, setIsVisible] = useState(false);
+  
+  const alignClasses = {
+    center: "left-1/2 -translate-x-1/2",
+    left: "left-0",
+    right: "right-0"
+  };
+
   return (
     <div 
       className="relative inline-flex items-center justify-center"
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
+      onClick={() => setIsVisible(!isVisible)}
     >
       {children}
       <AnimatePresence>
@@ -51,7 +59,11 @@ function Tooltip({ children, content }: { children: React.ReactNode, content: st
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 4 }}
             transition={{ duration: 0.15 }}
-            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-1 bg-tactical-card border border-tactical-border text-white text-[10px] rounded whitespace-nowrap z-[100] pointer-events-none shadow-xl"
+            className={cn(
+              "absolute bottom-full mb-2 px-3 py-2 bg-tactical-card border border-tactical-border text-white text-[10px] rounded z-[100] pointer-events-none shadow-xl w-[260px] max-w-[calc(100vw-2rem)] whitespace-normal text-left",
+              alignClasses[align],
+              className
+            )}
           >
             {content}
           </motion.div>
@@ -174,8 +186,16 @@ export default function App() {
   };
 
   const [isSticky, setIsSticky] = useState(false);
+  const statsHeaderRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const handleScroll = () => setIsSticky(window.scrollY > 100);
+    const handleScroll = () => {
+      if (statsHeaderRef.current) {
+        const rect = statsHeaderRef.current.getBoundingClientRect();
+        // Check if the element has reached the sticky position (top: 69px)
+        setIsSticky(rect.top <= 70);
+      }
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -189,7 +209,7 @@ export default function App() {
 
   useEffect(() => {
     setManualAutoContainers(null);
-  }, [autoContainerId, autoMix, autoPool, peopleCount, durationDays, dailyCalories]);
+  }, [autoContainerId, autoMix, peopleCount, durationDays, dailyCalories]);
 
   useEffect(() => {
     if (activeTab === 'pack' && tabsRef.current) {
@@ -751,11 +771,10 @@ export default function App() {
                   
                   <h3 className="text-sm font-mono text-tactical-muted uppercase tracking-widest mb-2">Необходимый запас энергии</h3>
                   <div 
-                    className="font-black mb-4 tracking-tighter text-tactical-accent whitespace-nowrap max-w-full px-2 h-[60px] flex items-center justify-center"
-                    style={{ fontSize: getDynamicFontSize(totalCaloriesNeeded.toLocaleString(), 3.75, 1.5, 8) }}
+                    className="font-black mb-4 tracking-tighter text-tactical-accent whitespace-nowrap w-full px-2 h-[100px] flex items-center justify-center leading-none text-[clamp(2.5rem,8vw,4.5rem)] md:text-[clamp(2rem,5vw,4rem)] lg:text-[clamp(2rem,3vw,3.5rem)] overflow-hidden"
                   >
                     {totalCaloriesNeeded.toLocaleString()}
-                    <span className="text-[clamp(0.875rem,4vw,1.25rem)] ml-2 opacity-50">ККАЛ</span>
+                    <span className="text-[clamp(1rem,3vw,1.5rem)] md:text-[clamp(0.875rem,2vw,1.25rem)] lg:text-[clamp(0.875rem,1vw,1.25rem)] ml-2 opacity-50 shrink-0">ККАЛ</span>
                   </div>
                   
                   <div className="w-full h-px bg-tactical-border my-6" />
@@ -792,6 +811,7 @@ export default function App() {
             >
               {/* Stats Header */}
               <div 
+                ref={statsHeaderRef}
                 className={cn(
                   "sticky top-[69px] z-40 flex items-center justify-between bg-tactical-card/95 backdrop-blur-xl border border-tactical-border shadow-2xl overflow-hidden transition-all duration-300 mb-8",
                   isSticky ? "py-2 px-6 rounded-b-2xl border-t-0" : "p-6 rounded-2xl"
@@ -802,12 +822,13 @@ export default function App() {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full relative z-10 gap-2 sm:gap-4">
-                  <div className="flex flex-row items-center gap-4 sm:gap-8 justify-between sm:justify-start w-full sm:w-auto">
+                  <div className={cn("flex flex-row items-center w-full", isSticky ? "justify-between sm:pr-8" : "justify-between sm:justify-start gap-4 sm:gap-8")}>
                     <div className="flex flex-col">
                       <span className={cn("font-mono text-tactical-muted uppercase tracking-widest transition-all duration-300", isSticky ? "text-[9px] mb-0" : "text-xs mb-1")}>Цель запаса</span>
-                      <div className="flex flex-wrap items-baseline gap-1 sm:gap-2">
-                        <span className={cn("font-black text-tactical-accent transition-all duration-300", isSticky ? "text-lg" : "text-3xl")}>{formatDuration(durationDays)}</span>
-                        <span className={cn("font-mono text-tactical-muted uppercase transition-all duration-300 whitespace-nowrap", isSticky ? "text-[9px]" : "text-sm")}>{totalCaloriesNeeded.toLocaleString()} ККАЛ</span>
+                      <span className={cn("font-black text-tactical-accent transition-all duration-300 leading-none", isSticky ? "text-lg" : "text-xl sm:text-3xl")}>{formatDuration(durationDays)}</span>
+                      <div className="flex items-baseline gap-1 mt-1">
+                        <span className={cn("font-black text-tactical-muted transition-all duration-300 leading-none", isSticky ? "text-xs" : "text-base sm:text-lg")}>{totalCaloriesNeeded.toLocaleString()}</span>
+                        <span className={cn("font-mono text-tactical-muted uppercase transition-all duration-300 leading-none", isSticky ? "text-[9px]" : "text-xs")}>ККАЛ</span>
                       </div>
                     </div>
                     
@@ -816,11 +837,12 @@ export default function App() {
                         Набрано сейчас
                         {isSticky && <span className="text-tactical-accent font-bold">{Math.round(progress)}%</span>}
                       </span>
-                      <div className="flex flex-wrap items-baseline justify-end sm:justify-start gap-1 sm:gap-2">
-                        <span className={cn("font-black transition-all duration-300", progress >= 95 ? "text-tactical-accent" : "text-white", isSticky ? "text-lg" : "text-3xl")}>
-                          {formatDurationPrecise(packedDurationDays)}
-                        </span>
-                        <span className={cn("font-mono text-tactical-muted uppercase transition-all duration-300 whitespace-nowrap", isSticky ? "text-[9px]" : "text-sm")}>{currentCaloriesPacked.toLocaleString()} ККАЛ</span>
+                      <span className={cn("font-black transition-all duration-300 leading-none", progress >= 95 ? "text-tactical-accent" : "text-white", isSticky ? "text-lg" : "text-xl sm:text-3xl")}>
+                        {formatDurationPrecise(packedDurationDays)}
+                      </span>
+                      <div className="flex items-baseline justify-end sm:justify-start gap-1 mt-1">
+                        <span className={cn("font-black text-tactical-muted transition-all duration-300 leading-none", isSticky ? "text-xs" : "text-base sm:text-lg")}>{currentCaloriesPacked.toLocaleString()}</span>
+                        <span className={cn("font-mono text-tactical-muted uppercase transition-all duration-300 leading-none", isSticky ? "text-[9px]" : "text-xs")}>ККАЛ</span>
                       </div>
                     </div>
                   </div>
@@ -875,51 +897,30 @@ export default function App() {
                       
                       <div className="space-y-4 mb-6">
                         <label className="block text-xs font-mono text-tactical-muted uppercase">Выберите бокс</label>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-2 gap-2 md:gap-4 lg:gap-2">
                           {CONTAINER_TYPES.map(t => (
                             <div
                               key={t.id}
                               onClick={() => setAutoContainerId(t.id)}
                               className={cn(
-                                "p-2 rounded-lg border text-left flex flex-col gap-1 transition-all relative cursor-pointer",
+                                "p-2 md:p-4 lg:p-2 rounded-lg border text-left flex flex-col gap-1 md:gap-3 lg:gap-1 transition-all relative cursor-pointer",
                                 autoContainerId === t.id ? "bg-tactical-accent/10 border-tactical-accent" : "bg-tactical-bg border-tactical-border hover:border-tactical-muted"
                               )}
                             >
                                 <button 
                                   onClick={(e) => { e.stopPropagation(); setZoomImage({ url: t.icon, title: t.name, desc: t.description }); }}
-                                  className="absolute top-3 right-3 p-1 bg-tactical-bg/80 backdrop-blur rounded text-tactical-muted hover:text-white hover:bg-tactical-accent transition-all z-10 cursor-pointer"
+                                  className="absolute top-3 right-3 md:top-4 md:right-4 lg:top-3 lg:right-3 p-1 bg-tactical-bg/80 backdrop-blur rounded text-tactical-muted hover:text-white hover:bg-tactical-accent transition-all z-10 cursor-pointer"
                                 >
-                                  <Info className="w-3 h-3" />
+                                  <Info className="w-3 h-3 md:w-5 md:h-5 lg:w-3 lg:h-3" />
                                 </button>
-                                <div className="h-16 w-full bg-tactical-bg relative overflow-hidden rounded mb-1">
+                                <div className="h-16 md:h-40 lg:h-16 w-full bg-tactical-bg relative overflow-hidden rounded mb-1">
                                   <img src={t.icon} alt={t.name} className="w-full h-full object-cover opacity-80" referrerPolicy="no-referrer" />
                                 </div>
-                              <span className="text-[10px] font-bold leading-tight pr-5">{t.name}</span>
+                              <span className="text-[10px] md:text-base lg:text-[10px] font-bold leading-tight pr-5">{t.name}</span>
                             </div>
                           ))}
                         </div>
                       </div>
-
-                      {activeContainers.length > 1 && (
-                        <div className="flex items-center justify-between mb-6 p-3 bg-tactical-bg rounded-lg border border-tactical-border">
-                          <div className="flex items-center gap-2">
-                            <Shuffle className="w-4 h-4 text-tactical-muted" />
-                            <span className="text-xs font-mono text-tactical-muted uppercase">Перемешать пакеты</span>
-                          </div>
-                          <button 
-                            onClick={() => setAutoMix(!autoMix)}
-                            className={cn(
-                              "w-12 h-6 rounded-full transition-colors relative cursor-pointer",
-                              autoMix ? "bg-tactical-accent" : "bg-tactical-border"
-                            )}
-                          >
-                            <div className={cn(
-                              "w-4 h-4 bg-white rounded-full absolute top-1 transition-transform",
-                              autoMix ? "left-7" : "left-1"
-                            )} />
-                          </button>
-                        </div>
-                      )}
 
                       <div className="space-y-4">
                         <label className="block text-xs font-mono text-tactical-muted uppercase">Пул продуктов</label>
@@ -974,16 +975,42 @@ export default function App() {
 
                     {/* Auto Result */}
                     <div className="lg:col-span-2 space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h2 className="text-xs font-mono text-tactical-muted uppercase tracking-widest">Сформированный склад ({activeContainers.length} ед.)</h2>
-                        {manualAutoContainers && (
-                          <button 
-                            onClick={resetAutoContainers}
-                            className="text-[10px] font-mono text-tactical-accent hover:underline flex items-center gap-1"
-                          >
-                            <Zap className="w-3 h-3" /> Вернуться к рассчитанному количеству
-                          </button>
-                        )}
+                      <div className="flex flex-wrap items-center justify-between gap-4">
+                        <h2 className="text-xs font-mono text-tactical-muted uppercase tracking-widest w-full sm:w-auto">Сформированный склад ({activeContainers.length} ед.)</h2>
+                        <div className="flex flex-wrap items-center gap-2 sm:gap-4 w-full sm:w-auto justify-between sm:justify-end">
+                          {activeContainers.length > 1 && (
+                            <div className="flex items-center gap-2 bg-tactical-bg/50 px-2 py-1 rounded-md w-fit">
+                              <Shuffle className="w-3 h-3 text-tactical-muted" />
+                              <span className="text-[10px] font-mono text-tactical-muted uppercase">Перемешать пакеты</span>
+                              <Tooltip 
+                                content="Включение этой опции будет стараться раскладывать продукты в боксы так, чтобы получился максимально разнообразный состав продуктов в боксе" 
+                                className="left-0 sm:left-auto sm:right-0 sm:translate-x-0"
+                              >
+                                <Info className="w-3 h-3 text-tactical-muted cursor-help" />
+                              </Tooltip>
+                              <button 
+                                onClick={() => setAutoMix(!autoMix)}
+                                className={cn(
+                                  "w-8 h-4 rounded-full transition-colors relative cursor-pointer ml-1",
+                                  autoMix ? "bg-tactical-accent" : "bg-tactical-border"
+                                )}
+                              >
+                                <div className={cn(
+                                  "w-3 h-3 bg-white rounded-full absolute top-0.5 transition-transform",
+                                  autoMix ? "left-4.5" : "left-0.5"
+                                )} />
+                              </button>
+                            </div>
+                          )}
+                          {manualAutoContainers && (
+                            <button 
+                              onClick={resetAutoContainers}
+                              className="text-[10px] font-mono text-tactical-accent hover:underline flex items-center gap-1 self-start sm:self-auto"
+                            >
+                              <Zap className="w-3 h-3" /> Вернуться к рассчитанному количеству
+                            </button>
+                          )}
+                        </div>
                       </div>
 
                       {activeContainers.length === 0 ? (
