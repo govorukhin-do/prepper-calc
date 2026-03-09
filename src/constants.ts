@@ -1,4 +1,4 @@
-// Last price update: 06.03.2026, 23:17:08
+// Last price update: 09.03.2026, 09:12:53
 import { FoodPacket, ContainerType } from './types';
 
 // Unit system: M = 6, MS = 2, S = 1
@@ -32,7 +32,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Коробка', 
     mCapacity: 4, 
     extraSCapacity: 0,
-    price: 190,
+    price: 180,
     description: '4 пакета (размер M)',
     icon: `${import.meta.env.BASE_URL}/images/box4.webp`
   },
@@ -41,7 +41,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Контейнер бытовой', 
     mCapacity: 10, 
     extraSCapacity: 5,
-    price: 2880,
+    price: 2510,
     description: '10 пакетов M + 5 пакетов S',
     icon: `${import.meta.env.BASE_URL}/images/box1.webp`
   },
@@ -50,7 +50,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Контейнер экспедиционный', 
     mCapacity: 9, 
     extraSCapacity: 0,
-    price: 2880,
+    price: 2510,
     description: '9 пакетов (размер M)',
     icon: `${import.meta.env.BASE_URL}/images/box2.webp`
   },
@@ -59,7 +59,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Ящик деревянный', 
     mCapacity: 8, 
     extraSCapacity: 0,
-    price: 3990,
+    price: 3450,
     description: '8 пакетов (размер M)',
     icon: `${import.meta.env.BASE_URL}/images/box3.webp`
   },
