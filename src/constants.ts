@@ -1,4 +1,4 @@
-// Last price update: 09.03.2026, 09:12:53
+// Last price update: 12.03.2026, 09:38:12
 import { FoodPacket, ContainerType } from './types';
 
 // Unit system: M = 6, MS = 2, S = 1
@@ -32,7 +32,7 @@ export const CONTAINER_TYPES: ContainerType[] = [
     name: 'Коробка', 
     mCapacity: 4, 
     extraSCapacity: 0,
-    price: 180,
+    price: 110,
     description: '4 пакета (размер M)',
     icon: `${import.meta.env.BASE_URL}/images/box4.webp`
   },
