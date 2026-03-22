@@ -1759,7 +1759,21 @@ export default function App() {
                   <X className="w-6 h-6" />
                 </button>
               </div>
-              <form className="space-y-4" onSubmit={e => { e.preventDefault(); setShowIdeaForm(false); showToast('Спасибо за идею!'); }}>
+              <form className="space-y-4" onSubmit={e => {
+                e.preventDefault();
+                const form = e.target as HTMLFormElement;
+                const idea = (form.querySelector('textarea') as HTMLTextAreaElement)?.value?.trim() || '';
+                const contact = (form.querySelector('input[type="text"]') as HTMLInputElement)?.value?.trim() || '';
+                if (idea) {
+                  if (typeof window !== 'undefined' && (window as any).onSubminIdeaForm) {
+                    (window as any).onSubminIdeaForm({ idea, contact });
+                  } else {
+                    console.log('Idea Data:', { idea, contact });
+                  }
+                }
+                setShowIdeaForm(false);
+                showToast('Спасибо за идею!');
+              }}>
                 <div className="space-y-2">
                   <label className="text-[10px] font-mono text-tactical-muted uppercase">Ваша идея или комментарий</label>
                   <textarea required className="w-full bg-tactical-bg border border-tactical-border rounded-xl py-3 px-4 text-white focus:border-tactical-accent outline-none min-h-[120px]" placeholder="Опишите ваше предложение..." />
